@@ -42,3 +42,29 @@ int validaPartidas(int partidas){
     }
     return partidas;
 }
+
+int menu(){
+    int opcao;
+
+    printf("==== MENU ====\n");
+    printf("[1] Registrar resultados do campeonato\n");
+    printf("[2] Mostrar resumo do campeonato\n");
+    printf("[3] Mostrar regulamento\n");
+    printf("[4] Simular campanha de equipe\n");
+    printf("[5] Encerrar sessão\n");
+    printf("Escolha uma opção: ");
+    scanf("%d", &opcao);
+    opcao = validaOp(opcao);
+    return opcao;
+}
+
+int validaOp(int valOp){
+    if(valOp < 1 || valOp > 5){
+        do{
+            printf("![VALOR INSERIDO INVÁLIDO]!\n");
+            printf("Escolha novamente uma opção: ");
+            scanf("%d", &valOp);
+        }while(valOp < 1 || valOp > 5);
+    }
+    return valOp;
+}

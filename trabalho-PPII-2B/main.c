@@ -22,5 +22,12 @@ int main(){
     scanf("%d", &qntPartidas);
     qntPartidas = validaPartidas(qntPartidas);
 
+    do{
+    limpa_title();
+    op = menu();
+    }while(op != 5);
+
+    printf("Sistema encerrado com sucesso.\n");
+    printf("Obrigado por utilizar o sistema!\n");
     return 0;
 }

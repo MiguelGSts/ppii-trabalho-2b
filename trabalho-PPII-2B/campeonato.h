@@ -11,4 +11,8 @@ int validaEquip(int equips);
 
 int validaPartidas(int partidas);
 
+int menu();
+
+int validaOp(int valOp);
+
 #endif
