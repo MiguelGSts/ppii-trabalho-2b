@@ -21,7 +21,7 @@ void registroEquip(int equip, int partidas, int *vitorias, int *derrotas, int *e
 
 void situacaoCamp(int pontos);
 
-void atualizaEstatisticas(int equip, int v, int d, int e, int *qntExcelente, int *qntBoa, int
+void atualizaEstatisticas(int equip, int v, int e, int *qntExcelente, int *qntBoa, int
 *qntRegular, int *qntRuim, int *maiorPontuacao, int *equipeMaior, int *qntEmpatadosMaior, int *menorPontuacao, int *equipeMenor, int *qntEmpatadosMenor);
 
 void printTotais(int totV, int totD, int totE);

@@ -42,7 +42,7 @@ int main(){
             totVitorias += v;
             totDerrotas += d;
             totEmpates += e;
-            atualizaEstatisticas(i, v, d, e, &qntExcelente, &qntBoa, &qntRegular, &qntRuim, 
+            atualizaEstatisticas(i, v, e, &qntExcelente, &qntBoa, &qntRegular, &qntRuim, 
             &maiorPontuacao, &equipeMaior, &qntEmpatadosMaior, &menorPontuacao, &equipeMenor, &qntEmpatadosMenor);
         }
         break;

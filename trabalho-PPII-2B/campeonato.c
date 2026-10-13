@@ -44,7 +44,7 @@ int validaPartidas(int partidas){
 }
 
 int menu(){
-    int opcao;
+    int opcao, c;
 
     printf("==== MENU ====\n");
     printf("[1] Registrar resultados do campeonato\n");
@@ -54,6 +54,7 @@ int menu(){
     printf("[5] Encerrar sessão\n");
     printf("Escolha uma opção: ");
     scanf("%d", &opcao);
+    while((c = getchar()) != '\n' && c != EOF);
     opcao = validaOp(opcao);
     return opcao;
 }
@@ -71,16 +72,16 @@ int validaOp(int valOp){
 
 void zerar(int *totVitorias, int *totDerrotas, int *totEmpates, float *somaPontos, int *qntExcelente, int *qntBoa, int *qntRegular, int *qntRuim, int *qntEmpatadosMaior, int *qntEmpatadosMenor){
 
-    totVitorias = 0;
-    totDerrotas = 0;
-    totEmpates = 0;
-    somaPontos = 0;
-    qntExcelente = 0;
-    qntBoa = 0;
-    qntRegular = 0;
-    qntRuim = 0; 
-    qntEmpatadosMaior = 0;
-    qntEmpatadosMenor = 0;
+    *totVitorias = 0;
+    *totDerrotas = 0;
+    *totEmpates = 0;
+    *somaPontos = 0;
+    *qntExcelente = 0;
+    *qntBoa = 0;
+    *qntRegular = 0;
+    *qntRuim = 0; 
+    *qntEmpatadosMaior = 0;
+    *qntEmpatadosMenor = 0;
 }
 
 void registroEquip(int equip, int partidas, int *vitorias, int *derrotas, int *empates, float *somaPontos){
@@ -116,7 +117,7 @@ void registroEquip(int equip, int partidas, int *vitorias, int *derrotas, int *e
         printf("Pontos: %d\n", pontos);
         printf("Situação:");
         situacaoCamp(pontos);
-        somaPontos += pontos;
+        *somaPontos += pontos;
         getchar();
 
         exit:
@@ -140,7 +141,7 @@ void situacaoCamp(int pontos){
     }
 }
 
-void atualizaEstatisticas(int equip, int v, int d, int e, int *qntExcelente, int *qntBoa, int
+void atualizaEstatisticas(int equip, int v, int e, int *qntExcelente, int *qntBoa, int
 *qntRegular, int *qntRuim, int *maiorPontuacao, int *equipeMaior, int *qntEmpatadosMaior, int *menorPontuacao, int *equipeMenor, int *qntEmpatadosMenor){
 
     int pontos = (v*3) + (e*1);
