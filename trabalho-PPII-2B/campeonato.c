@@ -186,7 +186,7 @@ void printQntSituacao(int qntExc, int qntBoa, int qntReg, int qntRuim){
 }
 
 
-void regulamento(int equips, int partidas){
+void regulamento(){
     limpa_title();
     printf("==== REGULAMENTO ====\n");
     printf("Vitória: 3 pontos\n");
@@ -198,6 +198,7 @@ void regulamento(int equips, int partidas){
     printf("Menos de 5 pontos: Campanha ruim\n\n");
     printf("Equipes: de 3 a 10\n");
     printf("Partidas por equipe: de 1 a 10\n");
+    getchar();
 }
 
 void simulaCampanha(int partidas){
@@ -250,5 +251,6 @@ void simulaCampanha(int partidas){
         }else{
             printf("Situação: Campanha ruim\n");
         }
+        getchar();
     }
 }

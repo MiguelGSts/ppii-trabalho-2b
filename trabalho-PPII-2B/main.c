@@ -33,7 +33,7 @@ int main(){
     switch (op){
         case 1:
         zerar(&totVitorias, &totDerrotas, &totEmpates, &somaPontos, &qntExcelente, &qntBoa, &qntRegular, &qntRuim, &qntEmpatadosMaior, &qntEmpatadosMenor);
-        
+
         for(int i = 1; i<=qntEquip; i++){
             int v, d, e;
 
@@ -72,6 +72,18 @@ int main(){
 
         printf("Quantidade de equipes empatadas na maior pontuação: %d", qntEmpatadosMaior);
         printf("Quantidade de equipes empatadas na menor pontuação: %d", qntEmpatadosMenor);
+        getchar();
+        break;
+
+        case 3:
+        regulamento();
+        break;
+
+        case 4:
+        simulaCampanha(qntPartidas);
+        break;
+
+        default:
         break;
     }
     }while(op != 5);

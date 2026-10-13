@@ -28,4 +28,8 @@ void printTotais(int totV, int totD, int totE);
 
 void printQntSituacao(int qntExc, int qntBoa, int qntReg, int qntRuim);
 
+void regulamento();
+
+void simulaCampanha(int partidas);
+
 #endif
