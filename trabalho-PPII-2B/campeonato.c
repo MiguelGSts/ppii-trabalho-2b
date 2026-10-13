@@ -68,6 +68,124 @@ int validaOp(int valOp){
     }
     return valOp;
 }
+
+void zerar(int *totVitorias, int *totDerrotas, int *totEmpates, float *somaPontos, int *qntExcelente, int *qntBoa, int *qntRegular, int *qntRuim, int *qntEmpatadosMaior, int *qntEmpatadosMenor){
+
+    totVitorias = 0;
+    totDerrotas = 0;
+    totEmpates = 0;
+    somaPontos = 0;
+    qntExcelente = 0;
+    qntBoa = 0;
+    qntRegular = 0;
+    qntRuim = 0; 
+    qntEmpatadosMaior = 0;
+    qntEmpatadosMenor = 0;
+}
+
+void registroEquip(int equip, int partidas, int *vitorias, int *derrotas, int *empates, float *somaPontos){
+    int v, d, e, c;
+    int pontos = 0;
+
+    do{
+        limpa_title();
+        printf("\n--- Equipe %d ---\n", equip);
+        printf("Vitórias: ");
+        scanf("%d", &v);
+        while((c = getchar()) != '\n' && c != EOF);
+        pontos += (v*3);
+
+        printf("Derrotas: ");
+        scanf("%d", &d);
+        while((c = getchar()) != '\n' && c != EOF);
+
+        printf("Empates: ");
+        scanf("%d", &e);
+        while((c = getchar()) != '\n' && c != EOF);
+        pontos += e;
+        if(v<0 || d<0 || e<0){
+            printf("![ERRO]! Não são permitidos números negativos no registro.");
+            getchar();
+            goto exit;
+        }
+        if((v+d+e)!=partidas){
+            printf("![ERRO]! Soma das participações em partidas incorreta.");
+            getchar();
+            goto exit;
+        }
+        printf("Pontos: %d\n", pontos);
+        printf("Situação:");
+        situacaoCamp(pontos);
+        somaPontos += pontos;
+        getchar();
+
+        exit:
+    }while(v<0 || d<0 || e<0 || (v+d+e)!=partidas);
+
+    *vitorias = v;
+    *derrotas = d;
+    *empates = e;
+
+}
+
+void situacaoCamp(int pontos){
+    if(pontos >= 15){
+        printf(" Excelente campanha\n");
+    }else if(pontos >= 10){
+        printf(" Boa campanha\n");
+    }else if(pontos >= 5){
+        printf(" Campanha regular\n");
+    }else{
+        printf(" Campanha ruim\n");
+    }
+}
+
+void atualizaEstatisticas(int equip, int v, int d, int e, int *qntExcelente, int *qntBoa, int
+*qntRegular, int *qntRuim, int *maiorPontuacao, int *equipeMaior, int *qntEmpatadosMaior, int *menorPontuacao, int *equipeMenor, int *qntEmpatadosMenor){
+
+    int pontos = (v*3) + (e*1);
+
+    if(pontos >= 15){
+        (*qntExcelente)++;
+    }else if(pontos >= 10){
+        (*qntBoa)++;
+    }else if(pontos >= 5){
+        (*qntRegular)++;
+    }else{
+        (*qntRuim)++;
+    }
+
+    if(pontos > *maiorPontuacao){
+        *maiorPontuacao = pontos;
+        *equipeMaior = equip;
+        *qntEmpatadosMaior = 1;
+    }else if(pontos == *maiorPontuacao){
+        (*qntEmpatadosMaior)++;
+    }
+
+    if(pontos < *menorPontuacao){
+        *menorPontuacao = pontos;
+        *equipeMenor = equip;
+        *qntEmpatadosMenor = 1;
+    }else if(pontos == *menorPontuacao){
+        (*qntEmpatadosMenor)++;
+    }
+}
+
+void printTotais(int totV, int totD, int totE){
+    printf("Total de vitórias: %d\n", totV);
+    printf("Total de derrotas: %d\n", totD);
+    printf("Total de empates: %d\n", totE);
+}
+
+void printQntSituacao(int qntExc, int qntBoa, int qntReg, int qntRuim){
+    printf("Quantidade de campanhas excelentes: %d", qntExc);
+    printf("Quantidade de campanhas boas: %d", qntBoa);
+    printf("Quantidade de campanhas regulares: %d", qntReg);
+    printf("Quantidade de campanhas ruins: %d", qntRuim);
+}
+
+
 void regulamento(int equips, int partidas){
     limpa_title();
     printf("==== REGULAMENTO ====\n");
