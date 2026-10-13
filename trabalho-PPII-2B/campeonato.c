@@ -180,10 +180,10 @@ void printTotais(int totV, int totD, int totE){
 }
 
 void printQntSituacao(int qntExc, int qntBoa, int qntReg, int qntRuim){
-    printf("Quantidade de campanhas excelentes: %d", qntExc);
-    printf("Quantidade de campanhas boas: %d", qntBoa);
-    printf("Quantidade de campanhas regulares: %d", qntReg);
-    printf("Quantidade de campanhas ruins: %d", qntRuim);
+    printf("Quantidade de campanhas excelentes: %d\n", qntExc);
+    printf("Quantidade de campanhas boas: %d\n", qntBoa);
+    printf("Quantidade de campanhas regulares: %d\n", qntReg);
+    printf("Quantidade de campanhas ruins: %d\n", qntRuim);
 }
 
 

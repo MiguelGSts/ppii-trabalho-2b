@@ -14,7 +14,7 @@ int main(){
 
     int op, qntEquip, qntPartidas;
     int totVitorias, totDerrotas, totEmpates;
-    float somaPontos;
+    float somaPontos = 0;
     int qntExcelente = 0, qntBoa = 0, qntRegular = 0, qntRuim = 0;
     int maiorPontuacao = -1, equipeMaior, qntEmpatadosMaior = 0;
     int menorPontuacao = 9999, equipeMenor, qntEmpatadosMenor = 0;
@@ -54,6 +54,7 @@ int main(){
             getchar();
             break;
         }
+        limpa_title();
         printf("Quantidade de equipes participantes: %d\n", qntEquip);
         printf("Quantidade de jogos por equipe: %d\n", qntPartidas);
 
@@ -64,14 +65,14 @@ int main(){
 
         printQntSituacao(qntExcelente, qntBoa, qntRegular, qntRuim);
 
-        printf("Maior pontuação: %d", maiorPontuacao);
-        printf("Número da equipe: %d", equipeMaior);
+        printf("Maior pontuação: %d\n", maiorPontuacao);
+        printf("Número da equipe: %d\n", equipeMaior);
 
-        printf("Menor pontuação: %d", menorPontuacao);
-        printf("Número da equipe: %d", equipeMenor);
+        printf("Menor pontuação: %d\n", menorPontuacao);
+        printf("Número da equipe: %d\n", equipeMenor);
 
-        printf("Quantidade de equipes empatadas na maior pontuação: %d", qntEmpatadosMaior);
-        printf("Quantidade de equipes empatadas na menor pontuação: %d", qntEmpatadosMenor);
+        printf("Quantidade de equipes empatadas na maior pontuação: %d\n", qntEmpatadosMaior);
+        printf("Quantidade de equipes empatadas na menor pontuação: %d\n", qntEmpatadosMenor);
         getchar();
         break;
 
